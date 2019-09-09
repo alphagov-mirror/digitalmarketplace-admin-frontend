@@ -34,14 +34,10 @@
         {{ form.email_address }}
         {{ form.role }}
         {% block save_button %}
-          {%
-            with
-            label="Invite user",
-            name="submit",
-            type="save"
-          %}
-            {% include "toolkit/button.html" %}
-          {% endwith %}
+          {{ govukButton({
+            "name": "name",
+            "text": "Invite user"
+          }) }}
         {% endblock %}
       </form>
     </div>
