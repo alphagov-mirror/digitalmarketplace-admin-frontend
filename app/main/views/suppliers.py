@@ -846,7 +846,12 @@ def toggle_supplier_services(supplier_id):
         abort(400, 'No {} services on framework'.format(toggle_action['old_status']))
 
     for service in services:
-        data_api_client.update_service_status(service['id'], toggle_action['new_status'], current_user.email_address)
+        data_api_client.update_service_status(
+            service['id'],
+            toggle_action['new_status'],
+            current_user.email_address,
+            wait_for_index=False,
+        )
 
     flash(toggle_action['flash_message'].format(
         supplier_name=services[0]['supplierName'],

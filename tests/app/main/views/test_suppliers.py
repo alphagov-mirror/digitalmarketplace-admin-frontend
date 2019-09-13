@@ -1226,9 +1226,9 @@ class TestToggleSupplierServicesView(LoggedInApplicationTest):
             )
         ]
         assert self.data_api_client.update_service_status.call_args_list == [
-            mock.call('5687123785023488', result_status, 'test@example.com'),
-            mock.call('5687123785023489', result_status, 'test@example.com'),
-            mock.call('5687123785023490', result_status, 'test@example.com'),
+            mock.call('5687123785023488', result_status, 'test@example.com', wait_for_index=False),
+            mock.call('5687123785023489', result_status, 'test@example.com', wait_for_index=False),
+            mock.call('5687123785023490', result_status, 'test@example.com', wait_for_index=False),
         ]
 
     @pytest.mark.parametrize('action, message_action', [
